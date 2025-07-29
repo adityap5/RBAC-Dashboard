@@ -37,9 +37,9 @@ export default function Login() {
   }
 
   const demoAccounts = [
-    { role: "Admin", email: "admin@demo.com", password: "admin123", icon: Shield, color: "text-red-600" },
-    { role: "Editor", email: "editor@demo.com", password: "editor123", icon: UserCheck, color: "text-yellow-600" },
-    { role: "Viewer", email: "viewer@demo.com", password: "viewer123", icon: UserX, color: "text-green-600" },
+    { role: "Admin", email: "admin@demo.com", password: "test@test.com", icon: Shield, color: "text-red-600" },
+    { role: "Editor", email: "editor@demo.com", password: "test@test.com", icon: UserCheck, color: "text-yellow-600" },
+    { role: "Viewer", email: "viewer@demo.com", password: "test@test.com", icon: UserX, color: "text-green-600" },
   ]
 
   return (

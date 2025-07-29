@@ -118,7 +118,7 @@ export default function Dashboard() {
       <Layout>
         <div className="space-y-8">
           {/* Header */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.1 }}>
             <h1 className="text-3xl font-bold text-gray-900">Welcome back, {user?.name}! 👋</h1>
             <p className="mt-2 text-gray-600">{getRoleDescription(user?.role)}</p>
           </motion.div>
@@ -139,7 +139,7 @@ export default function Dashboard() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
+              transition={{ delay: 0.1, duration: 0.3 }}
               className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
             >
               {stats.map((stat, index) => {
@@ -149,7 +149,7 @@ export default function Dashboard() {
                     key={stat.name}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.6 + index * 0.1, duration: 0.5 }}
+                    transition={{ delay: 0.2 + index * 0.1, duration: 0.2 }}
                     whileHover={{ scale: 1.05, y: -5 }}
                     className="bg-white overflow-hidden shadow-lg rounded-xl border border-gray-100"
                   >
