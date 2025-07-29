@@ -44,28 +44,28 @@ Make sure you have the following installed:
 
 ### 1. Clone the Repository
 
-\`\`\`bash
+```bash
 git clone <repository-url>
 cd rbac-dashboard
-\`\`\`
+```
 
 ### 2. Install Dependencies
 
-\`\`\`bash
+```bash
 npm install
 # or
 yarn install
-\`\`\`
+```
 
 ### 3. Environment Setup
 
 Create a `.env.local` file in the root directory:
 
-\`\`\`env
+```env
 # MongoDB Connection
 MONGODB_URI=mongodb://localhost:27017/rbac-dashboard
 # For MongoDB Atlas:
-# MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/rbac-dashboard
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/rbac-dashboard
 
 # JWT Secret (use a strong, random string)
 JWT_SECRET=your-super-secret-jwt-key-here-make-it-long-and-random
@@ -73,7 +73,7 @@ JWT_SECRET=your-super-secret-jwt-key-here-make-it-long-and-random
 # Next.js Configuration
 NEXTAUTH_URL=http://localhost:3000
 NODE_ENV=development
-\`\`\`
+```
 
 ### 4. Database Setup
 
@@ -88,27 +88,13 @@ NODE_ENV=development
 3. Get your connection string
 4. Replace the `MONGODB_URI` in your `.env.local` file
 
-### 5. Seed the Database
+### 5. Start the Development Server
 
-Run the seed script to create demo users and content:
-
-\`\`\`bash
-npm run seed
-\`\`\`
-
-This will create:
-- **Admin user**: `admin@demo.com` / `admin123`
-- **Editor user**: `editor@demo.com` / `editor123`
-- **Viewer user**: `viewer@demo.com` / `viewer123`
-- Sample content and activity logs
-
-### 6. Start the Development Server
-
-\`\`\`bash
+```bash
 npm run dev
 # or
 yarn dev
-\`\`\`
+```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
@@ -124,9 +110,9 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 | Role | Email | Password | Permissions |
 |------|-------|----------|-------------|
-| **Admin** | `admin@demo.com` | `admin123` | Full system access, user management, logs |
-| **Editor** | `editor@demo.com` | `editor123` | Content management, analytics |
-| **Viewer** | `viewer@demo.com` | `viewer123` | Read-only access to published content |
+| **Admin** | `admin@demo.com` | `test@test.com` | Full system access, user management, logs |
+| **Editor** | `editor@demo.com` | `test@test.com` | Content management, analytics |
+| **Viewer** | `viewer@demo.com` | `test@test.com` | Read-only access to published content |
 
 ### 🏠 **Dashboard Navigation**
 
@@ -155,7 +141,7 @@ The application is fully responsive:
 
 ### 📁 **Project Structure**
 
-\`\`\`
+```
 rbac-dashboard/
 ├── app/                          # Next.js App Router
 │   ├── api/                      # API routes
@@ -190,11 +176,11 @@ rbac-dashboard/
 ├── next.config.js                # Next.js configuration
 ├── tailwind.config.js            # Tailwind CSS configuration
 └── README.md                     # This file
-\`\`\`
+```
 
 ### 🔧 **Available Scripts**
 
-\`\`\`bash
+```bash
 # Development
 npm run dev          # Start development server
 npm run build        # Build for production
@@ -203,7 +189,7 @@ npm run lint         # Run ESLint
 
 # Database
 npm run seed         # Seed database with demo data
-\`\`\`
+```
 
 ### 🎨 **Customization**
 
@@ -260,78 +246,42 @@ npm run seed         # Seed database with demo data
 
 ### **Manual Deployment**
 
-\`\`\`bash
+```bash
 # Build the application
 npm run build
 
 # Start production server
 npm run start
-\`\`\`
+```
 
 ### **Environment Variables for Production**
 
-\`\`\`env
+```env
 MONGODB_URI=your-production-mongodb-uri
 JWT_SECRET=your-production-jwt-secret
 NEXTAUTH_URL=https://your-domain.com
 NODE_ENV=production
-\`\`\`
-
-## 🐛 Troubleshooting
-
-### **Common Issues**
-
-#### **MongoDB Connection Error**
-\`\`\`bash
-Error: MongoNetworkError: failed to connect to server
-\`\`\`
-**Solution**: Check your MongoDB URI and ensure MongoDB is running
-
-#### **JWT Secret Error**
-\`\`\`bash
-Error: JWT_SECRET is not defined
-\`\`\`
-**Solution**: Add JWT_SECRET to your `.env.local` file
-
-#### **Build Errors**
-\`\`\`bash
-Error: Cannot resolve module
-\`\`\`
-**Solution**: Delete `node_modules` and `.next`, then run `npm install`
-
-#### **Permission Denied**
-\`\`\`bash
-Error: Access denied
-\`\`\`
-**Solution**: Check user roles and route permissions
-
-### **Debug Mode**
-
-Enable debug logging by adding to `.env.local`:
-\`\`\`env
-DEBUG=true
-\`\`\`
-
+```
 ## 📚 API Documentation
 
 ### **Authentication Endpoints**
 
 #### `POST /api/auth/login`
-\`\`\`json
+```json
 {
   "email": "user@example.com",
   "password": "password123"
 }
-\`\`\`
+```
 
 #### `POST /api/auth/register`
-\`\`\`json
+```json
 {
   "name": "John Doe",
   "email": "john@example.com",
   "password": "password123"
 }
-\`\`\`
+```
 
 #### `GET /api/auth/me`
 Headers: `Authorization: Bearer <token>`
@@ -362,53 +312,3 @@ Delete content
 
 #### `GET /api/logs` (Admin only)
 Returns system activity logs
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- **Next.js** - React framework
-- **MongoDB** - Database
-- **Framer Motion** - Animations
-- **Lucide React** - Icons
-- **Tailwind CSS** - Styling
-- **Unsplash** - Images
-
-## 📞 Support
-
-If you encounter any issues or have questions:
-
-1. Check the troubleshooting section above
-2. Search existing issues on GitHub
-3. Create a new issue with detailed information
-4. Include error messages and steps to reproduce
-
----
-
-**Built with ❤️ using Next.js, MongoDB, and Framer Motion**
-\`\`\`
-
-This comprehensive README.md file provides:
-
-1. **Complete setup instructions** with step-by-step guidance
-2. **Environment configuration** details
-3. **Database setup** for both local and cloud MongoDB
-4. **Usage guide** with demo accounts and role explanations
-5. **Project structure** overview
-6. **Security features** documentation
-7. **Deployment instructions** for various platforms
-8. **Troubleshooting guide** for common issues
-9. **API documentation** with examples
-10. **Contributing guidelines**
-
-The README is well-structured with emojis, code blocks, tables, and clear sections to make it easy to follow and understand. It covers everything needed to get the project running and understand how to use it effectively.
